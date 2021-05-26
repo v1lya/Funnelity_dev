@@ -1,8 +1,10 @@
 <section class="result-section">
   <mat-card [ngStyle]="answers.gender === 'Male' ? {backgroundColor: 'green'} : {backgroundColor: 'white'}"
             class="mat-elevation-z5 result-card">
-    <p *ngIf="answers.housingStatus !== ''" class="result-content-header">
-      User answered as follows:</p>
+    <p
+      *ngIf="answers.housingStatus !== ''" class="result-content-header">
+      User answered as follows:
+    </p>
     <p
       *ngIf="answers.housingStatus !== ''"
       [ngStyle]="answers.age < 30 ? {color: 'deeppink'} : answers.age > 40 ? {fontSize: 'x-large'} : {fontSize: 'large'}"

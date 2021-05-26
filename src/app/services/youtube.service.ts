@@ -4,22 +4,21 @@ import {Observable} from 'rxjs';
 import {YoutubeSearchResults} from '../models/youtube-search-results.model';
 import {catchError, map} from 'rxjs/operators';
 import {SnackBarService} from './snackBar.service';
+import {environment} from '../../environments/environment';
 
 @Injectable({providedIn: 'root'})
 export class YoutubeService {
-  private API_URL = 'https://www.googleapis.com/youtube/v3/search';
-  private API_TOKEN = 'AIzaSyCtgMbiiiZryN_ogEFLvICMqoPZ77C_ru0';
 
   constructor(private http: HttpClient, private snackBarService: SnackBarService) {
   }
 
   fetchYoutubeVideos(query: string): Observable<string[]> {
-    return this.http.get<YoutubeSearchResults>(this.API_URL, {
+    return this.http.get<YoutubeSearchResults>(environment.API_URL, {
         params: new HttpParams({
           fromObject: {
             q: query,
             maxResult: '10',
-            key: this.API_TOKEN
+            key: environment.API_KEY
           }
         })
       }

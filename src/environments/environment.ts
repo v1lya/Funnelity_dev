@@ -3,7 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  API_URL: 'https://www.googleapis.com/youtube/v3/search',
+  API_KEY: 'AIzaSyCtgMbiiiZryN_ogEFLvICMqoPZ77C_ru0',
+  firebase: {
+    apiKey: 'AIzaSyD2i9oEt9SlIniZxjnvOgVy4alaMHs0F-U',
+    authDomain: 'funnelityapp.firebaseapp.com',
+    projectId: 'funnelityapp',
+    storageBucket: 'funnelityapp.appspot.com',
+    messagingSenderId: '44553603653',
+    appId: '1:44553603653:web:4edd79e252e2e766e1712c',
+    measurementId: 'G-Q1SXSQVFK6'
+  }
 };
 
 /*
