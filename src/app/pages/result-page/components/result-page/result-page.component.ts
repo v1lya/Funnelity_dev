@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subject} from 'rxjs';
-import {FunnelService} from '../../../services/funnel.service';
+import {FunnelService} from '../../../../services/funnel.service';
 import {takeUntil} from 'rxjs/operators';
-import {Answers} from '../../../models/answers.model';
+import {Answers} from '../../../../models/answers.model';
 
 @Component({
   selector: 'app-result-page',

@@ -5,8 +5,10 @@ import {ResultPageGuard} from './guards/result-page.guard';
 const routes: Routes = [
   {path: '', redirectTo: '/main', pathMatch: 'full'},
   {path: 'main', loadChildren: () => import('./pages/main-page/main-page.module').then(m => m.MainPageModule)},
-  {path: 'result', loadChildren: () => import('./pages/result-page/result-page.module').then(m => m.ResultPageModule),
-    // canActivate: [ResultPageGuard]
+  {
+    path: 'result',
+    loadChildren: () => import('./pages/result-page/result-page.module').then(m => m.ResultPageModule),
+    canActivate: [ResultPageGuard]
   },
   {path: '**', redirectTo: '/main'}
 ];

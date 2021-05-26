@@ -9,42 +9,33 @@ export class FunnelService {
   questionIndex: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   primeNumber: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-  // housingStatus = [
-  //   {value: 'Homeless / Living in a shelter', viewValue: 'Homeless / Living in a shelter'},
-  //   {value: 'Homeowner', viewValue: 'Homeowner'},
-  //   {value: 'Living with family / friend', viewValue: 'Living with family / friend'},
-  //   {value: 'Renting', viewValue: 'Renting'}
-  // ];
-  //
+  housingStatus = [
+    {value: 'Homeless / Living in a shelter', viewValue: 'Homeless / Living in a shelter'},
+    {value: 'Homeowner', viewValue: 'Homeowner'},
+    {value: 'Living with family / friend', viewValue: 'Living with family / friend'},
+    {value: 'Renting', viewValue: 'Renting'}
+  ];
+
   yearsOfBirth = [
     {value: 2010, viewValue: 2010}
   ];
-  //
-  // genders = [
-  //   {value: 'Female', viewValue: 'Female'},
-  //   {value: 'Male', viewValue: 'Male'}
-  // ];
-  //
-  //
-  // // populateYearsOfBirth(): void {
-  // //   for (let i = 1971; i <= 2010; i++) {
-  // //     this.yearsOfBirth.push(
-  // //       {value: i, viewValue: i}
-  // //     );
-  // //   }
-  // // }
 
-  populateYearsOfBirth(): void {
-    for (let i = 2009; i >= 1970; i--) {
-      this.yearsOfBirth.push(
-        {value: i, viewValue: i}
-      );
-    }
+  genders = [
+    {value: 'Female', viewValue: 'Female'},
+    {value: 'Male', viewValue: 'Male'}
+  ];
+
+  getHousingStatus(): Question[] {
+    return this.housingStatus;
   }
 
   getYearsOfBirth(): Question[] {
     this.populateYearsOfBirth();
     return this.yearsOfBirth;
+  }
+
+  getGender(): Question[] {
+    return this.genders;
   }
 
   countAmountOfLettersInAnswers(answers: Answers): number {
@@ -64,5 +55,13 @@ export class FunnelService {
     }
     this.primeNumber.next(true);
     return true;
+  }
+
+  private populateYearsOfBirth(): void {
+    for (let i = 2009; i >= 1970; i--) {
+      this.yearsOfBirth.push(
+        {value: i, viewValue: i}
+      );
+    }
   }
 }

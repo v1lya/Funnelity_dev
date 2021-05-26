@@ -1,0 +1,50 @@
+.result-section {
+  height: calc(100vh - 50px - 40px);
+  box-sizing: border-box;
+  padding: 2rem;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5rem;
+}
+
+.result-card {
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 1rem;
+  margin: 2rem;
+}
+
+.result-content-header {
+  font-size: 1.5em;
+}
+
+.result-content-body {
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.result-youtube-player {
+  box-sizing: border-box;
+  width: 368px;
+  height: 207px;
+  display: flex;
+  align-self: center;
+}
+
+@media screen and (max-width: 970px) {
+  .result-section {
+    padding: 4rem 2rem;
+    row-gap: 5rem;
+  }
+
+  .result-card {
+    height: 20vh;
+    row-gap: 1rem;
+    margin: 0;
+    padding: 1rem;
+  }
+}

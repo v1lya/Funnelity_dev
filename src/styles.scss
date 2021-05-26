@@ -7,14 +7,17 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow: auto;
 }
 
 a {
   text-decoration: none;
 }
+
 .mat-card {
-  padding: 0!important;
+  padding: 0 !important;
 }
+
 .mat-tab-header {
-  display: none!important;
+  display: none !important;
 }

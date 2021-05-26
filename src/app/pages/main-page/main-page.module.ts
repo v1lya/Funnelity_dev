@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {QuestionsFormComponent} from './components/questions-form/questions-form.component';
 import {MainPageComponent} from './components/main-page/main-page.component';
 import {MaterialModule} from '../../material.module';
@@ -7,7 +7,6 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {CoreModule} from '../../core/core.module';
 import {MainPageRoutingModule} from './main-page-routing.module';
-
 
 
 @NgModule({
@@ -28,4 +27,5 @@ import {MainPageRoutingModule} from './main-page-routing.module';
     QuestionsFormComponent
   ]
 })
-export class MainPageModule { }
+export class MainPageModule {
+}
