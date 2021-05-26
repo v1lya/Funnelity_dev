@@ -1,0 +1,120 @@
+<section class="questions-section">
+  <mat-card class="mat-elevation-z8 questions-card">
+    <form (ngSubmit)="onSubmitAnswers()" [formGroup]="form" class="questions-form">
+      <mat-tab-group (selectedIndexChange)="onChangeQuestion($event)" [selectedIndex]="activeTab" align="center">
+        <mat-tab>
+          <mat-card-content class="question-content">What Is Your Housing Status?</mat-card-content>
+          <div class="question-tab">
+            <div>
+              <button
+                (click)="onBack()"
+                [ngStyle]="activeTab > 0 ? {display: 'block'} : {display: 'none'}"
+                class="questions-buttons-arrows" mat-button type="button">
+                <mat-icon>arrow_back_ios</mat-icon>
+              </button>
+            </div>
+            <div>
+              <mat-form-field appearance="fill" class="question-field">
+                <mat-label>Select an option</mat-label>
+                <mat-select [formControl]="housingStatusControl" name="housingStatus" required>
+                  <mat-option *ngFor="let housingStatus of housingStatuses"
+                              [value]="housingStatus.value">{{housingStatus.viewValue}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.controls.housingStatus.errors?.required">Please select your housing status
+                </mat-error>
+              </mat-form-field>
+              <div class="question-button-continue">
+                <button
+                  (click)="onContinue()" [disabled]="form.controls.housingStatus.invalid" class="button"
+                  mat-stroked-button type="button">
+                  CONTINUE
+                </button>
+              </div>
+            </div>
+            <div>
+              <button
+                (click)="onContinue()"
+                [disabled]="form.controls.housingStatus.invalid" [ngStyle]="activeTab <= 2 ? {display: 'block'} : {display: 'none'}"
+                class="questions-buttons-arrows" mat-button type="button">
+                <mat-icon>arrow_forward_ios</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab>
+          <mat-card-content class="question-content">What Is Your Year Of Birth?</mat-card-content>
+          <div class="question-tab">
+            <div>
+              <button
+                (click)="onBack()"
+                [ngStyle]="activeTab > 0 ? {display: 'block'} : {display: 'none'}"
+                class="questions-buttons-arrows" mat-button type="button">
+                <mat-icon>arrow_back_ios</mat-icon>
+              </button>
+            </div>
+            <div>
+              <mat-form-field appearance="fill" class="question-field">
+                <mat-label>Select an option</mat-label>
+                <mat-select [formControl]="yearOfBirthControl" name="yearOfBirth" required>
+                  <mat-option *ngFor="let year of yearsOfBirth" [value]="year.value">{{year.viewValue}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.controls.yearOfBirth.errors?.required">Please select your year of birth
+                </mat-error>
+              </mat-form-field>
+              <div class="question-button-continue">
+                <button
+                  (click)="onContinue()" [disabled]="form.controls.yearOfBirth.invalid" class="button"
+                  mat-stroked-button type="button">
+                  CONTINUE
+                </button>
+              </div>
+            </div>
+            <div>
+              <button
+                (click)="onContinue()"
+                [disabled]="form.controls.yearOfBirth.invalid" [ngStyle]="activeTab <= 2 ? {display: 'block'} : {display: 'none'}"
+                class="questions-buttons-arrows" mat-button type="button">
+                <mat-icon>arrow_forward_ios</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab>
+          <mat-card-content class="question-content">What Is Your Gender?</mat-card-content>
+          <div class="question-tab">
+            <div>
+              <button
+                (click)="onBack()"
+                [ngStyle]="activeTab > 0 ? {display: 'block'} : {display: 'none'}"
+                class="questions-buttons-arrows" mat-button type="button">
+                <mat-icon>arrow_back_ios</mat-icon>
+              </button>
+            </div>
+            <div>
+              <mat-form-field appearance="fill" class="question-field">
+                <mat-label>Select an option</mat-label>
+                <mat-select [formControl]="gendersControl" name="gender" required>
+                  <mat-option *ngFor="let gender of genders" [value]="gender.value">{{gender.viewValue}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.controls.gender.errors?.required">Please select a housing status</mat-error>
+              </mat-form-field>
+              <div class="question-button-continue">
+                <button [disabled]="form.controls.gender.invalid" class="button" mat-stroked-button type="submit">
+                  SUBMIT
+                </button>
+              </div>
+            </div>
+            <div>
+              <button
+                (click)="onContinue()"
+                [disabled]="form.controls.gender.invalid" [ngStyle]="activeTab < 2 ? {display: 'block'} : {display: 'none'}"
+                class="questions-buttons-arrows" mat-button type="button">
+                <mat-icon>arrow_forward_ios</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </form>
+  </mat-card>
+</section>

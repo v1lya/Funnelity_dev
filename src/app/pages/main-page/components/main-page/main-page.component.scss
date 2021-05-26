@@ -1,0 +1,92 @@
+.main-page {
+  background: url('/assets/background/ny.png') no-repeat fixed center -10%;
+  background-size: 120%;
+  height: calc(100vh - 50px - 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.main-page-logo {
+  width: 60px;
+  height: auto;
+  margin-right: 1rem;
+}
+
+.main-page-title-block {
+  display: flex;
+  justify-content: center;
+  text-align: start;
+}
+
+.main-page-title {
+  font-size: 3em;
+}
+
+.main-page-subtitle {
+  color: lightgrey;
+  font-size: 1.1em;
+}
+
+.main-page-content-get {
+  font-size: 3.5em;
+  padding-top: 7rem;
+  letter-spacing: 0.05rem;
+}
+
+.main-page-content-qualify {
+  color: gold;
+  font-size: 2.5em;
+  padding-top: 2rem;
+  letter-spacing: 0.05rem;
+}
+
+.main-page-content-apply {
+  font-size: 2.5em;
+  letter-spacing: 0.05rem;
+  line-height: 2rem;
+}
+
+@media screen and (max-width: 970px) {
+  .main-page {
+    background-size: cover;
+  }
+
+  .main-page-logo {
+    width: 50px;
+  }
+
+  .main-page-title-block {
+    align-items: center;
+    text-align: start;
+  }
+
+  .main-page-title {
+    font-size: 2em;
+  }
+
+  .main-page-subtitle {
+    font-size: 1em;
+    margin-bottom: 0.2rem;
+  }
+
+  .main-page-content-get {
+    font-size: 1.8em;
+    padding-top: 4rem;
+  }
+
+  .main-page-content-qualify {
+    font-size: 1.5em;
+    padding-top: 1rem;
+  }
+
+  .main-page-content-apply {
+    font-size: 1.7em;
+    line-height: normal;
+    padding-top: 1rem;
+  }
+}

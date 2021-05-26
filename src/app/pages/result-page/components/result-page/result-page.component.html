@@ -1,0 +1,19 @@
+<section class="result-section">
+  <mat-card [ngStyle]="answers.gender === 'Male' ? {backgroundColor: 'green'} : {backgroundColor: 'white'}"
+            class="mat-elevation-z5 result-card">
+    <p *ngIf="answers.housingStatus !== ''" class="result-content-header">
+      User answered as follows:</p>
+    <p
+      *ngIf="answers.housingStatus !== ''"
+      [ngStyle]="answers.age < 30 ? {color: 'deeppink'} : answers.age > 40 ? {fontSize: 'x-large'} : {fontSize: 'large'}"
+      class="result-content-body">
+      He/She is a <strong>{{answers.housingStatus}}</strong>.
+      He/She is <strong>{{answers.gender}}</strong>.
+      He/she is <strong>{{answers.age}}</strong> years old.
+    </p>
+  </mat-card>
+  <mat-card class="mat-elevation-z5 result-youtube-player">
+    <app-youtube-player></app-youtube-player>
+  </mat-card>
+</section>
+
