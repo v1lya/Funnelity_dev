@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   API_URL: 'https://www.googleapis.com/youtube/v3/search',
-  API_KEY: 'AIzaSyCtgMbiiiZryN_ogEFLvICMqoPZ77C_ru0',
+  API_KEY: 'AIzaSyB09kgDrkrPbQIm2SOqoXwen9OdjgfPJOM',
   firebase: {
     apiKey: 'AIzaSyD2i9oEt9SlIniZxjnvOgVy4alaMHs0F-U',
     authDomain: 'funnelityapp.firebaseapp.com',
