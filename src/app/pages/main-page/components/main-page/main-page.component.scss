@@ -1,0 +1,47 @@
+.main-page {
+  background: url('/assets/background/ny.png') no-repeat fixed center -5%;
+  background-size: 145%;
+  height: calc(100vh - 50px - 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
+  color: white;
+}
+
+.main-page-logo {
+  width: 60px;
+  height: auto;
+  margin-right: 1rem;
+}
+
+.main-page-title-block {
+  display: flex;
+  justify-content: center;
+}
+
+.main-page-title {
+  font-size: 3em;
+}
+
+.main-page-subtitle {
+  color: lightgrey;
+  font-size: 1.1em;
+}
+
+.main-page-content-get {
+  font-size: 3.5em;
+  padding-top: 7rem;
+}
+
+.main-page-content-qualify {
+  color: goldenrod;
+  font-size: 2.5em;
+  padding-top: 2rem;
+}
+
+.main-page-content-apply {
+  font-size: 2.5em;
+  padding-top: 1rem;
+}
