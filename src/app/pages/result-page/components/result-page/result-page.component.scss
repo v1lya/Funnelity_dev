@@ -5,7 +5,6 @@
   background-color: aliceblue;
   display: flex;
   flex-direction: column;
-  row-gap: 5rem;
 }
 
 .result-card {
@@ -16,6 +15,7 @@
   justify-content: center;
   row-gap: 1rem;
   margin: 2rem;
+  padding-bottom: 5rem;
 }
 
 .result-content-header {
@@ -45,6 +45,6 @@
     height: 20vh;
     row-gap: 1rem;
     margin: 0;
-    padding: 1rem;
+    padding: 1rem 1rem 6rem 1rem;
   }
 }
