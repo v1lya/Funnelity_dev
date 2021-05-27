@@ -1,0 +1,9 @@
+<mat-toolbar class="footer">
+  <div *ngIf="isResult === null">
+    <p class="footer-text">Question {{questionNumber}} out of 3</p>
+  </div>
+  <div *ngIf="isResult !== null">
+    <mat-icon *ngIf="isPrimeNumber">sentiment_very_satisfied</mat-icon>
+    <mat-icon *ngIf="!isPrimeNumber">mood_bad</mat-icon>
+  </div>
+</mat-toolbar>
