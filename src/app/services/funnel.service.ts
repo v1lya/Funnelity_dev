@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {Answers} from '../models/answers.model';
-import {Question} from '../models/question.model';
+import {Validators} from '@angular/forms';
+import {Questions} from '../models/questions.model';
 
 @Injectable({providedIn: 'root'})
 export class FunnelService {
@@ -9,41 +10,54 @@ export class FunnelService {
   questionIndex: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   primeNumber: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-  housingStatus = [
-    {value: 'Homeless / Living in a shelter', viewValue: 'Homeless / Living in a shelter'},
-    {value: 'Homeowner', viewValue: 'Homeowner'},
-    {value: 'Living with family / friend', viewValue: 'Living with family / friend'},
-    {value: 'Renting', viewValue: 'Renting'}
-  ];
+  questionsData: Questions = {
+    housingStatus: {
+      questionText: 'What Is Your Housing Status?',
+      options: [
+        {value: 'Homeless / Living in a shelter', viewValue: 'Homeless / Living in a shelter'},
+        {value: 'Homeowner', viewValue: 'Homeowner'},
+        {value: 'Living with family / friend', viewValue: 'Living with family / friend'},
+        {value: 'Renting', viewValue: 'Renting'}
+      ],
+      initialValue: '',
+      validators: [Validators.required],
+    },
+    yearOfBirth: {
+      questionText: 'What Is Your Year Of Birth?',
+      options: [
+        {value: 2010, viewValue: 2010}
+      ],
+      validators: [Validators.required],
+      initialValue: ''
+    },
+    gender: {
+      questionText: 'What Is Your Gender?',
+      options: [
+        {value: 'Female', viewValue: 'Female'},
+        {value: 'Male', viewValue: 'Male'}
+      ],
+      validators: [Validators.required],
+      initialValue: ''
+    }
+  };
 
-  yearsOfBirth = [
-    {value: 2010, viewValue: 2010}
-  ];
-
-  genders = [
-    {value: 'Female', viewValue: 'Female'},
-    {value: 'Male', viewValue: 'Male'}
-  ];
-
-  getHousingStatus(): Question[] {
-    return this.housingStatus;
-  }
-
-  getYearsOfBirth(): Question[] {
+  getQuestionsData(): Questions {
     this.populateYearsOfBirth();
-    return this.yearsOfBirth;
+    return this.questionsData;
   }
 
-  getGender(): Question[] {
-    return this.genders;
+  private populateYearsOfBirth(): void {
+    for (let i = 2009; i >= 1970; i--) {
+      this.questionsData.yearOfBirth.options.push(
+        {value: i, viewValue: i}
+      );
+    }
   }
 
   countAmountOfLettersInAnswers(answers: Answers): number {
-    const lettersCounter =
-      answers.housingStatus.trim().length
+    return answers.housingStatus.trim().length
       + answers.gender.trim().length
       + answers.yearOfBirth.toString().length;
-    return lettersCounter;
   }
 
   primeNumberCheck(lettersCount: number): boolean {
@@ -55,13 +69,5 @@ export class FunnelService {
     }
     this.primeNumber.next(true);
     return true;
-  }
-
-  private populateYearsOfBirth(): void {
-    for (let i = 2009; i >= 1970; i--) {
-      this.yearsOfBirth.push(
-        {value: i, viewValue: i}
-      );
-    }
   }
 }

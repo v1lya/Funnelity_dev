@@ -1,5 +1,5 @@
 .result-section {
-  height: calc(100vh - 50px - 40px);
+  height: calc(100vh - var(--header-height) - var(--footer-height));
   box-sizing: border-box;
   padding: 2rem;
   background-color: aliceblue;

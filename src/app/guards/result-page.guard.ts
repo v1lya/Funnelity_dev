@@ -19,7 +19,7 @@ export class ResultPageGuard implements CanActivate {
     return this.funnelService.answers.pipe(
       take(1),
       map((receivedAnswers) => {
-          if (((receivedAnswers.housingStatus || receivedAnswers.gender) === '') && receivedAnswers.yearOfBirth === 0) {
+          if ((receivedAnswers.housingStatus === '') || (receivedAnswers.gender === '') || (receivedAnswers.yearOfBirth === 0)) {
             this.router.navigate(['/']);
             return false;
           }
