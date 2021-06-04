@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {FunnelService} from '../../../../services/funnel.service';
-import {Question} from '../../../../models/question.model';
+import {Questions} from '../../../../models/questions.model';
 
 @Component({
   selector: 'app-questions-form',
@@ -11,31 +11,29 @@ import {Question} from '../../../../models/question.model';
 })
 export class QuestionsFormComponent implements OnInit {
   activeTab = 0;
+  indexOfTheLastTab: number;
 
-  housingStatuses: Question[] = [];
+  questionsData: Questions = {
+    gender: {initialValue: '', options: [], questionText: '', validators: [Validators]},
+    housingStatus: {initialValue: '', options: [], questionText: '', validators: [Validators]},
+    yearOfBirth: {initialValue: '', options: [], questionText: '', validators: [Validators]}
+  };
 
-  yearsOfBirth: Question[] = [];
+  questionsForm: FormGroup = new FormGroup({});
 
-  genders: Question[] = [];
+  keepOrder = (a: any, b: any) => a;
 
-  form: FormGroup;
 
-  housingStatusControl = new FormControl('', {validators: [Validators.required]});
-  yearOfBirthControl = new FormControl('', {validators: [Validators.required]});
-  gendersControl = new FormControl('', {validators: [Validators.required]});
-
-  constructor(private router: Router, private funnelService: FunnelService) {
-    this.form = new FormGroup({
-      housingStatus: this.housingStatusControl,
-      yearOfBirth: this.yearOfBirthControl,
-      gender: this.gendersControl
-    });
-  }
+  constructor(private router: Router, private funnelService: FunnelService) {}
 
   ngOnInit(): void {
-    this.housingStatuses = this.funnelService.getHousingStatus();
-    this.yearsOfBirth = this.funnelService.getYearsOfBirth();
-    this.genders = this.funnelService.getGender();
+    this.questionsData = this.funnelService.getQuestionsData();
+
+    Object.entries(this.funnelService.getQuestionsData()).forEach(([key, value]) => {
+        this.questionsForm.setControl(key, new FormControl(value.initialValue, {validators: value.validators}));
+    });
+
+    this.indexOfTheLastTab = Object.keys(this.questionsData).length - 1;
 
     this.funnelService.questionIndex.next(this.activeTab);
   }
@@ -52,8 +50,10 @@ export class QuestionsFormComponent implements OnInit {
     this.funnelService.questionIndex.next($event);
   }
 
+
   onSubmitAnswers(): void {
-    const answers = this.form.value;
+    const answers = this.questionsForm.value;
+    console.log(answers);
     answers.age = new Date().getFullYear() - answers.yearOfBirth;
     this.funnelService.answers.next(answers);
     this.router.navigate(['/result']);
